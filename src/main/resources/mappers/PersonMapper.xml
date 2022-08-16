@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nodepower.homemoney.dao.PersonMapper">
+  <resultMap id="BaseResultMap" type="com.nodepower.homemoney.beans.Person">
+    <id column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="p_name" jdbcType="VARCHAR" property="pName" />
+    <result column="p_password" jdbcType="INTEGER" property="pPassword" />
+    <result column="p_age" jdbcType="INTEGER" property="pAge" />
+    <result column="p_role" jdbcType="VARCHAR" property="pRole" />
+    <result column="p_f_id" jdbcType="INTEGER" property="pFId" />
+  </resultMap>
+</mapper>

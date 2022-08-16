@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nodepower.homemoney.dao.BillMapper">
+  <resultMap id="BaseResultMap" type="com.nodepower.homemoney.beans.Bill">
+    <id column="b_id" jdbcType="INTEGER" property="bId" />
+    <result column="b_num" jdbcType="INTEGER" property="bNum" />
+    <result column="b_date" jdbcType="TIMESTAMP" property="bDate" />
+    <result column="b_type" jdbcType="VARCHAR" property="bType" />
+    <result column="b_money" jdbcType="VARCHAR" property="bMoney" />
+    <result column="b_person" jdbcType="VARCHAR" property="bPerson" />
+    <result column="b_hname" jdbcType="VARCHAR" property="bHname" />
+    <result column="b_f_id" jdbcType="INTEGER" property="bFId" />
+  </resultMap>
+
+  <update id="updateByBNum">
+    update bill set b_num=#{bid} where b_id=#{bid}
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap">
+    select b_id,b_p_id,b_date,b_type,b_money,b_person,b_hname,b_f_id
+    from bill where b_p_id=#{bpid}
+  </select>
+
+  <select id="selectById" resultMap="BaseResultMap">
+    select b_id,b_p_id,b_date,b_type,b_money,b_person,b_hname,b_f_id
+    from bill where b_f_id=#{bfid}
+  </select>
+
+  <select id="selectCountByBFId" resultMap="BaseResultMap">
+    select b_money from bill where b_id=#{bid}
+  </select>
+
+  <select id="selectByBType" resultMap="BaseResultMap">
+    select b_money form bill where b_type = #{type}
+  </select>
+
+  <select id="selectByTypeByBpId" resultMap="BaseResultMap">
+    select b_money form bill
+    where b_p_id=#{bpid} and b_type=#{type}
+  </select>
+</mapper>
